@@ -8,8 +8,8 @@ select nombre(
 );
 
 --Numero 2:
-select NOMBRE_AEROLINEA from (select max(counter), NOMBRE_AEROLINEA from (
-    select vuelos.ID_AEROLINEA, count(vuelos.ID_AEROLINEA) as counter, aerolineas.NOMBRE_AEROLINEA 
+select nombre from (select max(counter), nombre from (
+    select vuelos.ID_AEROLINEA, count(vuelos.ID_AEROLINEA) as counter, aerolineas.NOMBRE_AEROLINEA as nombre
     from vuelos join aerolineas where vuelos.ID_MOVIMIENTO = 1 and vuelos.ID_AEROLINEA =  aerolineas.ID_AEROLINEA 
     group by Orders.vuelos.ID_AEROLINEA
 )
@@ -23,9 +23,9 @@ select DIA from (select max(counter), DIA from (
 );
 
 --Numero 4:
-select name from (
-    select vuelos.ID_AEROLINEA, count(distinct(vuelos.DIA)) as counter, aerolineas.NOMBRE_AEROLINEA as name 
+select nombre from (
+    select vuelos.ID_AEROLINEA, count(distinct(vuelos.DIA)) as counter, aerolineas.NOMBRE_AEROLINEA as nombre 
     from vuelos join aerolineas on vuelos.ID_MOVIMIENTO = 1 and vuelos.ID_AEROLINEA = aerolineas.ID_AEROLINEA 
     group by vuelos.ID_AEROLINEA 
-    having counter > 10
+    having counter > 2
 );
