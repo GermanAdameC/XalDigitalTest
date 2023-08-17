@@ -38,12 +38,6 @@ def is_bigger(targetValue, currectValue):
   else: 
     return False
 
-
-def equals(targetValue, currectValue):
-  if targetValue == currectValue:
-    return True
-  else: 
-    return False
  
 # FOR principal
 
@@ -84,7 +78,7 @@ print("\nPreguntas no contestadas:", answered_false, "\n")
 
   
 for item in data[ITEMS]:
-  if equals(item[ANSWER_ID], min_view[ID]):
+  if item[ANSWER_ID] == min_view[ID]:
     print("Cantidad de vistas de la 'Respuesta' con menor número de vistas:", min_view[VAL])
     print("\n'Respuesta' con menor número de vistas", item, "\n")
 
